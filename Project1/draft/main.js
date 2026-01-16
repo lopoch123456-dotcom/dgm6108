@@ -11,7 +11,7 @@ let drawing = d3.select("#canvas")
         (1) We know what the purpose of the shape is, and
         (2) We will have the ability to change it later (in a future assignment)
 */
-let border = drawing.append("rect")
+let border = drawing.append("rect") // I LOVE PLAYBOI CARTI
     .attr("width", 500)
     .attr("height", 500)
     .attr("fill", "none")
@@ -19,54 +19,54 @@ let border = drawing.append("rect")
 
 // DownBlow is Moses Drawing
 
-let butterflyBody = drawing.append("rect")
+let butterflyBody = drawing.append("rect") // It is Butterfly body
     .attr("x" , 110)
     .attr("y" , 60)
     .attr("width" , 10)
     .attr("height" , 150)
     .attr("fill", "green")
 
-let butterflyLeftTopWing = drawing.append("polyline")
+let butterflyLeftTopWing = drawing.append("polyline") // It is Butterfly left top wing
     .attr("points", closedPolygon(
         20 , 20 , 
         110 , 90 , 
         10 , 130))
     .attr("fill", "yellow")
 
-let butterflyRightTopWing = drawing.append("polyline")
+let butterflyRightTopWing = drawing.append("polyline") // It is Butterfly right top wing
     .attr("points", closedPolygon(
         200 , 20 , 
         120 , 90 , 
         220 , 130))
     .attr("fill", "yellow")
 
-let butterflyRightLowerWing = drawing.append("polyline")
+let butterflyRightLowerWing = drawing.append("polyline") // It is Butterfly right bottom wing
     .attr("points", closedPolygon(
         220 , 140 , 
         120 , 110 , 
         130 , 240))
     .attr("fill", "red") 
 
-let butterflyLeftLowerWing = drawing.append("polyline")
+let butterflyLeftLowerWing = drawing.append("polyline") // It is Butterfly left bottom wing
     .attr("points", closedPolygon(
         20 , 140 , 
         110 , 110 , 
         100 , 240))
     .attr("fill", "red")
 
-let butterflyLeftEye = drawing.append("circle")
+let butterflyLeftEye = drawing.append("circle") // It is Butterfly left eeeeye
     .attr("cx", 100)
     .attr("cy", 60)
     .attr("r", 10)
     .attr("fill", "black")
 
-let butterflyRightEye = drawing.append("circle")
+let butterflyRightEye = drawing.append("circle") // It is Butterfly right eyeeee
     .attr("cx", 130)
     .attr("cy", 60)
     .attr("r", 10)
     .attr("fill", "black")
 
-let butterflyLeftTentacle = drawing.append("line")
+let butterflyLeftTentacle = drawing.append("line") // It is Butterfly left tentacle
     .attr("x1", 110)
     .attr("y1", 60)
     .attr("x2", 40)
@@ -74,7 +74,7 @@ let butterflyLeftTentacle = drawing.append("line")
     .attr("stroke", "black")
     .attr("stroke-width" , 2)
 
-let butterflyRightTentacle = drawing.append("line")
+let butterflyRightTentacle = drawing.append("line") // It is Butterfly right tentacle
     .attr("x1", 130)
     .attr("y1", 60)
     .attr("x2", 190)
