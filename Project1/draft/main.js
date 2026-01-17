@@ -19,65 +19,68 @@ let border = drawing.append("rect") // I LOVE PLAYBOI CARTI
 
 // DownBlow is Moses Drawing
 
+let butterflyX = 110 // butterfly location
+let butterflyY = 60
+
 let butterflyBody = drawing.append("rect") // It is Butterfly body
-    .attr("x" , 110)
-    .attr("y" , 60)
+    .attr("x" , butterflyX)
+    .attr("y" , butterflyY)
     .attr("width" , 10)
     .attr("height" , 150)
     .attr("fill", "green")
 
 let butterflyLeftTopWing = drawing.append("polyline") // It is Butterfly left top wing
     .attr("points", closedPolygon(
-        20 , 20 , 
-        110 , 90 , 
-        10 , 130))
+        butterflyX - 30 , butterflyY - 40 , 
+        butterflyX , butterflyY + 50 , 
+        butterflyX - 90 , butterflyY + 30))
     .attr("fill", "yellow")
 
 let butterflyRightTopWing = drawing.append("polyline") // It is Butterfly right top wing
     .attr("points", closedPolygon(
-        200 , 20 , 
-        120 , 90 , 
-        220 , 130))
+        150 , 20 , 
+        120 , 110 , 
+        210 , 90))
     .attr("fill", "yellow")
 
 let butterflyRightLowerWing = drawing.append("polyline") // It is Butterfly right bottom wing
     .attr("points", closedPolygon(
-        220 , 140 , 
+        190 , 110 , 
         120 , 110 , 
-        130 , 240))
+        120 , 240))
     .attr("fill", "red") 
 
 let butterflyLeftLowerWing = drawing.append("polyline") // It is Butterfly left bottom wing
     .attr("points", closedPolygon(
-        20 , 140 , 
+        40 , 110 , 
         110 , 110 , 
-        100 , 240))
+        110 , 240))
     .attr("fill", "red")
 
 let butterflyLeftEye = drawing.append("circle") // It is Butterfly left eeeeye
-    .attr("cx", 100)
+    .attr("cx", 105)
     .attr("cy", 60)
     .attr("r", 10)
     .attr("fill", "black")
 
 let butterflyRightEye = drawing.append("circle") // It is Butterfly right eyeeee
-    .attr("cx", 130)
+    .attr("cx", 125)
     .attr("cy", 60)
     .attr("r", 10)
     .attr("fill", "black")
 
 let butterflyLeftTentacle = drawing.append("line") // It is Butterfly left tentacle
     .attr("x1", 110)
-    .attr("y1", 60)
-    .attr("x2", 40)
+    .attr("y1", 55)
+    .attr("x2", 90)
     .attr("y2", 10)
     .attr("stroke", "black")
     .attr("stroke-width" , 2)
 
 let butterflyRightTentacle = drawing.append("line") // It is Butterfly right tentacle
-    .attr("x1", 130)
-    .attr("y1", 60)
-    .attr("x2", 190)
+    .attr("x1", 120)
+    .attr("y1", 55)
+    .attr("x2", 140)
     .attr("y2", 10)
     .attr("stroke", "black")
     .attr("stroke-width" , 2)
