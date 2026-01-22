@@ -1,26 +1,40 @@
 "use strict"
 
-/*  Variable that enables you to "talk to" your SVG drawing canvas. */
+document.getElementById("action").addEventListener("click", processForm);
+
+let xInput, yInput, choice;
+
+function processForm() {
+    /* Get data from the form */
+    xInput = Number(document.getElementById("xInput").value);
+    yInput = Number(document.getElementById("yInput").value);
+    choice = document.getElementById("wingNumber").value;
+    drawing.selectAll('svg>*').remove(); // This line selects everything that has been drawn in the SVG and deletes it all
+    drawImage();
+}
+
+/* set up the drawing canvas - Be sure not to copy this code from your draft project! */
 let drawing = d3.select("#canvas")
     .append("svg")
     .attr("width", 500)
     .attr("height", 500);
 
-/* Draw a border that matches the maximum drawing area for this assignment.
-    Assign the border to a variable so that:
-        (1) We know what the purpose of the shape is, and
-        (2) We will have the ability to change it later (in a future assignment)
-*/
-let border = drawing.append("rect") // I LOVE PLAYBOI CARTI
+let border = drawing.append("rect")
     .attr("width", 500)
     .attr("height", 500)
     .attr("fill", "none")
     .attr("stroke", "red");
 
-// DownBlow is Moses Drawing
+/*
+The function below is called when the user presses the "Draw!" button and is where you will put most of your drawing code. Please follow the instructions in the homework PDF for this step.
+*/
 
-let butterflyX = 110 // butterfly location
-let butterflyY = 60
+function drawImage() {
+
+    let butterflyX = xInput;
+    let butterflyY = yInput;
+
+//butterflyX = 110 butterflyY = 60 butterfly OG location
 
 let butterflyBody = drawing.append("rect") // It is Butterfly body
     .attr("x" , butterflyX)
@@ -84,3 +98,35 @@ let butterflyRightTentacle = drawing.append("line") // It is Butterfly right ten
     .attr("y2", butterflyY - 50)
     .attr("stroke", "black")
     .attr("stroke-width" , 2)
+
+
+    // Step 10: Modify your drawing code to CONDITIONALLY draw part of your drawing based on
+    // the choice the user made in your selection menu (stored in variable "choice" above)
+if (choice === "2") {
+
+  let butterflyLeftThirdWing = drawing.append("polyline")
+    .attr("points", closedPolygon(
+      butterflyX , butterflyY + 60,
+      butterflyX - 40, butterflyY + 70,
+      butterflyX - 40, butterflyY + 200
+    ))
+    .attr("fill", "pink")
+
+  let butterflyRightThirdWing = drawing.append("polyline")
+    .attr("points", closedPolygon(
+      butterflyX + 10 , butterflyY + 60,
+      butterflyX + 50, butterflyY + 70,
+      butterflyX + 40, butterflyY + 200
+    ))
+    .attr("fill", "pink")
+}// if user wanna 6 wings, will add 2 more wings
+
+function closedPolygon(x1, y1, x2, y2, x3, y3) {
+  return x1 + "," + y1 + " " +
+         x2 + "," + y2 + " " +
+         x3 + "," + y3 + " " +
+         x1 + "," + y1; // closed polygon
+}
+
+    /***** DO NOT ADD OR EDIT ANYTHING BELOW THIS LINE ******/
+}
