@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moses Project #2-4</title>
+</head>
+<body>
+    <p>🃏Magic: The Gathering Cards🃏</p>
+
+    <p>Which “Magic: The Gathering” card pack do
+you want to purchase?
+    <select id="cardSelect">
+        <option value="booster">Retail booster pack</option>
+        <option value="starter">Collectable starter pack</option>
+        <option value="complete">1st edition complete set</option>
+    </select></p>
+
+    <p>Please enter your credit card number: <input id="ccNumber" type="text" placeholder="6 digits" /></p>
+
+    <p>Please enter your credit card validation (CCV)
+code: <input id="ccvNumber" type="text" placeholder="3 digits" /></p> 
+
+    <button id="submit">Submit</button>
+    <div id="output"></div>
+    <button id="reset" hidden>Try Again</button>
+    <hr />
+
+    <script src="main.js"></script>
+    <script src="output.js"></script>
+    <a href="./flowchartFinal.drawio.pdf">View my flowchart</a>
+</body>
+</html>
