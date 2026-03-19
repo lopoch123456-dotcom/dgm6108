@@ -69,11 +69,11 @@ let rScale = d3.scaleSqrt() // Square root scale
 
 let colorScale = d3.scaleOrdinal()
     .domain(["Survival", "Survival/Spark", "Spark"])
-    .range(["#7f8c8d", "#f1c40f", "#e67e22"]); // 深灰代表生存，黄色代表过渡，橙色代表火花
+    .range(["#1eb125", "#f1c40f", "#e67e22"]); // 深灰代表生存，黄色代表过渡，橙色代表火花
 
 let healthColor = d3.scaleLinear()
-    .domain([1, 3, 5])
-    .range(["#e74c3c", "#f1c40f", "#2ecc71"]); // red to yellow to green
+    .domain([1, 2, 3, 4, 5])
+    .range(["#363f36","#3c553d","#336433", "#60c034", "#0fe96a"]); // red to yellow to green
 
 let star = d3.symbol().type(d3.symbolStar).size(200); // I ask AI how to add a star shape
 let cross = d3.symbol().type(d3.symbolCross).size(150);
@@ -81,10 +81,14 @@ let cross = d3.symbol().type(d3.symbolCross).size(150);
 // start drawing 
 const trunkX = svgWidth / 2;
 
-svg.append("line")
-    .attr("x1", trunkX).attr("x2", trunkX)
-    .attr("y1", margin).attr("y2", svgHeight - margin)
-    .attr("stroke", "#8b4513").attr("stroke-width", 8);
+for (let level = 1; level <= 5; level++) {
+    svg.append("line")
+        .attr("x1", trunkX).attr("x2", trunkX)
+        .attr("y1", yScale(level - 1))
+        .attr("y2", yScale(level))
+        .attr("stroke", healthColor(level))
+        .attr("stroke-width", 8);
+}
 
 svg.selectAll(".purchase")
     .data(dataset)
@@ -111,22 +115,31 @@ svg.selectAll(".purchase")
                 .attr("cx", x2Value)
                 .attr("cy", yPos)
                 .attr("r", 8)
-                .attr("fill", healthColor(d.satisfaction));
+                .attr("fill", colorScale(d.category));
         } else if (d.category == "Spark"){
             d3.select(this).append("path")
                 .attr("d", star) // use the star shape
                 .attr("transform", `translate(${x2Value}, ${yPos})`) // Move to the end of the branch
-                .attr("fill", healthColor(d.satisfaction)) 
+                .attr("fill", colorScale(d.category)) 
                 .attr("stroke", "#333") 
                 .attr("stroke-width", 1);
         } else {
             d3.select(this).append("path")
                 .attr("d", cross)
                 .attr("transform", `translate(${x2Value}, ${yPos})`)
-                .attr("fill", healthColor(d.satisfaction));
+                .attr("fill", colorScale(d.category));
         }
+
+        svg.append("text")// add price to it.
+            .attr("x", x2Value)
+            .attr("y", yPos - 10)  
+            .attr("text-anchor", isLeft ? "end" : "start")  // Ternary operator so i don't need use if Learn from https://baike.baidu.com/item/%E4%B8%89%E5%85%83%E8%BF%90%E7%AE%97%E7%AC%A6/1394210
+            .attr("font-size", "11px")
+            .text(`$${d.amount}`);
     });
 
 /**** Draw XY Axis line ****/
 // Draw Y Axis Line
 let satisfactionLevels = [1, 2, 3, 4, 5];
+
+
