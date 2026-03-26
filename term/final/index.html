@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Pengcheng term 6108 final</title>
+    <script src="d3.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="container">
+        <div id="canvas"></div>
+        <h1 style="text-align:center">Spending Tree: Decision Window & Satisfaction</h1>
+
+        <p style="text-align: left">Each branch represents a single consumption transaction. The length of the branch indicates the amount spent; the longer the branch, the higher the amount. The shape of the branch indicates the consumption category: a circle represents "fast-moving consumption," a cross represents "habitual consumption," and a star represents "planned consumption." The trunk color gradually changes from dark green to bright green, with satisfaction increasing from the bottom (1) to the top (5).
+
+The leaf colors are green for "survival," yellow for "survival/vitality," and orange for "vitality."</p>
+
+        <p><strong>Why this is my best scatterplot:</strong> 
+                 I chose a tree structure because spending feels organic — some purchases are necessities rooted in survival, others are sparks of joy. The alternating left-right branches prevent overlap and make each purchase easy to trace. By encoding amount as branch length, category as shape, and satisfaction as trunk color, the tree lets you see at a glance that larger planned purchases (Plan/Survival) tend to cluster toward the top with higher satisfaction, while smaller impulse buys (Instant/Spark) spread outward unpredictably.
+    </div>
+    
+    <div>
+        <p><strong>Hypothesis:</strong>
+        <p>As I spend more time considering my spending, my consumer satisfaction also increases.</p>
+        <hr>
+        <p><strong>The visualization question:</strong>
+        <p>The relationship between the nature of consumption and psychological satisfaction. My final visualization choice was a tree diagram. I felt that the growth of a tree and the height of its leaves could effectively reflect the level of psychological satisfaction. I chose this topic primarily because, as an international student, I often feel a deep sense of guilt about my spending. I can't shake the self-blame I feel for not being able to earn more money. This emotion influences my consumption habits. I wanted to observe what kind of consumption makes me feel comfortable.</p>
+        <hr>
+    </div>
+</body>
+<script src="main.js"></script>
+
+</html>
